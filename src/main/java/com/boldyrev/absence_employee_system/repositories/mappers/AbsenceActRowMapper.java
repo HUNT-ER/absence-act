@@ -12,13 +12,10 @@ public class AbsenceActRowMapper implements RowMapper<AbsenceAct> {
 
     @Override
     public AbsenceAct mapRow(ResultSet rs, int rowNum) throws SQLException {
-        return AbsenceAct.builder()
-            .id(rs.getLong("id"))
-            .reason(new AbsentReason(rs.getInt("reason_id"), rs.getString("name")))
-            .startDate(rs.getDate("start_date").toLocalDate())
-            .duration(rs.getInt("duration"))
-            .isDiscounted(rs.getBoolean("discounted"))
-            .description(rs.getString("description"))
-            .build();
+        return new AbsenceAct(rs.getLong("id"),
+            new AbsentReason(rs.getInt("reason_id"), rs.getString("name")),
+            rs.getDate("start_date").toLocalDate(),
+            rs.getInt("duration"),
+            rs.getBoolean("discounted"), rs.getString("description"));
     }
 }

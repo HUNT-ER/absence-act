@@ -12,4 +12,6 @@ public class AbsentReason {
     private Integer id;
 
     private String name;
+    
+
 }

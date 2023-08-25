@@ -34,7 +34,6 @@
       <groupId>org.flywaydb</groupId>
       <artifactId>flyway-core</artifactId>
     </dependency>
-
     <dependency>
       <groupId>org.postgresql</groupId>
       <artifactId>postgresql</artifactId>
@@ -69,6 +68,8 @@
       <groupId>org.testcontainers</groupId>
       <artifactId>jdbc</artifactId>
     </dependency>
+
+
     <dependency>
       <groupId>org.mapstruct</groupId>
       <artifactId>mapstruct</artifactId>
@@ -84,6 +85,7 @@
       <artifactId>lombok-mapstruct-binding</artifactId>
       <version>0.2.0</version>
     </dependency>
+
   </dependencies>
 
   <build>

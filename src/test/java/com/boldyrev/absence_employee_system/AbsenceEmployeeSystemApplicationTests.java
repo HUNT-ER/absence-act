@@ -28,29 +28,11 @@ class AbsenceEmployeeSystemApplicationTests {
 
     @Test
     void contextLoads() {
-        AbsenceAct act = AbsenceAct.builder()
-            .reason(new AbsentReason(3, ""))
-            .startDate(LocalDate.now())
-            .duration(4)
-            .isDiscounted(false)
-            .description("desc")
-            .build();
-        System.out.println(absenceActsRepository.save(act));
     }
 
     @Test
     void contextLoads2() {
         System.out.println(absenceActsRepository.findById(1));
-
-        AbsenceAct act = AbsenceAct.builder()
-            .reason(new AbsentReason(3, ""))
-            .startDate(LocalDate.now())
-            .duration(4)
-            .isDiscounted(false)
-            .description("desc")
-            .build();
-
-        System.out.println(absenceActsRepository.update(1, act));
 
         System.out.println(absenceActsRepository.findById(1));
     }
