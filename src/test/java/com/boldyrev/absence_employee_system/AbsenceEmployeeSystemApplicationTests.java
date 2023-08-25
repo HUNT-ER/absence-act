@@ -4,6 +4,7 @@ import com.boldyrev.absence_employee_system.models.AbsenceAct;
 import com.boldyrev.absence_employee_system.models.AbsentReason;
 import com.boldyrev.absence_employee_system.repositories.AbsenceActsRepository;
 import com.boldyrev.absence_employee_system.repositories.AbsentReasonsRepository;
+import com.boldyrev.absence_employee_system.services.AbsenceActsService;
 import java.time.LocalDate;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,9 @@ class AbsenceEmployeeSystemApplicationTests {
     AbsenceActsRepository absenceActsRepository;
     @Autowired
     AbsentReasonsRepository absentReasonsRepository;
+
+    @Autowired
+    AbsenceActsService actsService;
 
     @Test
     void contextLoads() {
