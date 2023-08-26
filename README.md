@@ -8,6 +8,7 @@ This API allows you to do CRUD operations to absense acts for employees
 - Spring Web MVC
 - PostgreSQL
 - Lombok
+- Testcontainers
 
 ## Frontend
 - HTML
@@ -18,7 +19,20 @@ This API allows you to do CRUD operations to absense acts for employees
 ## Set up 
 - [*clone*](https://github.com/HUNT-ER/absence-act.git) the project
 - change [src/main/resources/application.properties) file based on your database configurations
-- run the project using [AbsenceEmployeeSystemApplication.java](src/main/java/com/boldyrev/absence_employee_system/AbsenceEmployeeSystemApplication.java) 
+- run the project using [AbsenceEmployeeSystemApplication.java](src/main/java/com/boldyrev/absence_employee_system/AbsenceEmployeeSystemApplication.java)
+- also you can run [docker-compose.yml] file with command to run project in docker
+```agsl
+  docker compose up -d --build
+```
+
+# View
+
+## Page with all acts
+![image](https://github.com/HUNT-ER/absence-act/assets/38404914/16b1d067-84f1-47f1-aa01-82079c613861)
+
+## Page with creating/editing act
+![image](https://github.com/HUNT-ER/absence-act/assets/38404914/57453056-3ea9-4b14-9784-bbe29e4a0aad)
+
 
 # API Reference 
 
