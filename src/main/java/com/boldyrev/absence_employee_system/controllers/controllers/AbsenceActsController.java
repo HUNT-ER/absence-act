@@ -40,6 +40,12 @@ public class AbsenceActsController {
         this.actValidator = actValidator;
     }
 
+
+    /**
+     * GET endpoint для получения списка Актов
+     *
+     * @return страница со списком Актов
+     */
     @GetMapping
     public ResponseEntity<CustomResponse> getAll() {
         List<AbsenceActDTO> acts = actsService.findAll().stream().map(actMapper::actToActDTO)
@@ -48,6 +54,12 @@ public class AbsenceActsController {
         return new ResponseEntity<>(new CustomResponse(acts), HttpStatus.OK);
     }
 
+    /**
+     * GET endpoint для получения Акта по Id
+     *
+     * @param id идентификатор Акта
+     * @return Акт
+     */
     @GetMapping("/{id}")
     public ResponseEntity<CustomResponse> getById(@PathVariable("id") Long id) {
         AbsenceActDTO act = actMapper.actToActDTO(actsService.findById(id));
@@ -56,6 +68,13 @@ public class AbsenceActsController {
             .body(new CustomResponse(act));
     }
 
+    /**
+     * POST endpoint для сохранения Акта
+     *
+     * @param act    новый Акт
+     * @param errors ошибки валидации
+     * @return сохраненный акт
+     */
     @PostMapping
     public ResponseEntity<CustomResponse> create(
         @RequestBody @Validated(NewOrExists.class) AbsenceActDTO act,
@@ -68,6 +87,14 @@ public class AbsenceActsController {
         );
     }
 
+    /**
+     * PUT endpoint для обновления Акта
+     *
+     * @param id идентификатор обновляемого Акта
+     * @param act    обновленный Акт
+     * @param errors ошибки валидации
+     * @return обновленный акт
+     */
     @PutMapping("/{id}")
     public ResponseEntity<CustomResponse> updateById(@PathVariable("id") Long id,
         @RequestBody @Validated(NewOrExists.class) AbsenceActDTO act, BindingResult errors) {
@@ -79,6 +106,12 @@ public class AbsenceActsController {
                 actMapper.actToActDTO(actsService.update(id, actMapper.actDTOToAct(act)))));
     }
 
+    /**
+     * DELETE endpoint для удаления Акта
+     *
+     * @param id идентификатор удаляемого Акта
+     * @return сообщение с успешным удалением
+     */
     @DeleteMapping("/{id}")
     public ResponseEntity<CustomResponse> deleteById(@PathVariable Long id) {
         actsService.deleteById(id);
