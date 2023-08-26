@@ -39,14 +39,14 @@ This API allows you to do CRUD operations to absense acts for employees
 
 ## Ingredient categories operations
 
-**GET** `/api/absense-act`
+**GET** `/api/absense-acts`
   returns list of absence acts
 
-**GET** `/api/absense-act/{id}`
+**GET** `/api/absense-acts/{id}`
   returns absence act by ID
 
 
-**POST** `/api/absense-act`
+**POST** `/api/absense-acts`
   create new absence act by request body:
 ```agsl
   request body:
@@ -59,10 +59,10 @@ This API allows you to do CRUD operations to absense acts for employees
     }
 ```
 
-**PUT** `/api/absense-act`
+**PUT** `/api/absense-acts`
 updates absense-act by request body and id
 
-**DELETE** `/api/absense-act/{id} `
+**DELETE** `/api/absense-acts/{id} `
 deletes absense-act by id
 
 # Entity diagram
