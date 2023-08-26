@@ -75,7 +75,7 @@ public class AbsenceActsControllerTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.body").exists())
-            .andExpect(jsonPath("$.body", Matchers.hasSize(3)));
+            .andExpect(jsonPath("$.body", Matchers.hasSize(7)));
 
         Mockito.verify(actsService).findAll();
     }
@@ -115,12 +115,12 @@ public class AbsenceActsControllerTest {
 
     @Test
     void getById_IdIsNotExists_ThrowsEntityNotFoundException() throws Exception {
-        final var id = 4;
+        final var id = 999;
         mockMvc.perform(get("/api/absence-acts/" + id))
             .andDo(print())
             .andExpect(status().isNotFound())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-            .andExpect(jsonPath("$.message", Matchers.equalTo("Act by id = 4 not found")))
+            .andExpect(jsonPath("$.message", Matchers.equalTo("Act by id = 999 not found")))
             .andExpect(r -> assertThatExceptionOfType(EntityNotFoundException.class));
 
         Mockito.verify(actsService).findById(id);
@@ -209,7 +209,7 @@ public class AbsenceActsControllerTest {
         throws Exception {
         AbsenceActDTO act = new AbsenceActDTO(null, "Отпуск", LocalDate.of(2023, 8, 25), 7, true,
             "Ежегодный отпуск");
-        final var id = 4;
+        final var id = 999;
 
         mockMvc.perform(put("/api/absence-acts/" + id)
                 .content(mapper.writeValueAsString(act))
@@ -217,7 +217,7 @@ public class AbsenceActsControllerTest {
             .andDo(print())
             .andExpect(status().isNotFound())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-            .andExpect(jsonPath("$.message", Matchers.equalTo("Act by id = 4 not found")))
+            .andExpect(jsonPath("$.message", Matchers.equalTo("Act by id = 999 not found")))
             .andExpect(r -> assertThatExceptionOfType(EntityNotFoundException.class));
     }
 

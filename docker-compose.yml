@@ -1,0 +1,41 @@
+services:
+  db:
+    image: postgres
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: changepassword
+      POSTGRES_DB: act_test
+    volumes:
+      - ./src/main/resources/db/migration:/docker-entrypoint-initdb.d
+      - pg_data:/var/lib/postgresql/data
+    networks:
+      - postgres
+
+  app:
+    image: nh028/absence-service
+    container_name: absence-service
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - 8080:8080
+    networks:
+      - postgres
+
+  web:
+    image: nh028/absence-employee
+    container_name: absence-web
+    restart: always
+    depends_on:
+      - app
+    ports:
+      - 8081:8081
+    networks:
+      - postgres
+
+volumes:
+  pg_data:
+
+networks:
+  postgres:
