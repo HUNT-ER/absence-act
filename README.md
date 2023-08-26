@@ -20,7 +20,7 @@ This API allows you to do CRUD operations to absense acts for employees
 - [*clone*](https://github.com/HUNT-ER/absence-act.git) the project
 - change [src/main/resources/application.properties) file based on your database configurations
 - run the project using [AbsenceEmployeeSystemApplication.java](src/main/java/com/boldyrev/absence_employee_system/AbsenceEmployeeSystemApplication.java)
-- also you can run [docker-compose.yml] file with command to run project in docker
+- also you can run (docker-compose.yml) file with command to run project in docker
 ```agsl
   docker compose up -d --build
 ```
