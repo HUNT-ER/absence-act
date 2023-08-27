@@ -37,7 +37,7 @@ This API allows you to do CRUD operations to absense acts for employees
 
 # API Reference 
 
-## Ingredient categories operations
+## Absence acts operations
 
 **GET** `/api/absense-acts`
   returns list of absence acts
